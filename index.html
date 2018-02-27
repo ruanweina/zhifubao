@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./js/jquery-3.0.0.js"></script>
+    <script src="js/zf.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        .block{
+            position: relative;
+            height: 100%;
+        }
+        .content{
+            position: fixed;
+            top:0px;
+            width: 100%;
+            background-color: black;
+            z-index: 100;
+        }
+        .ul_list{
+            margin: 0 260px;
+        }
+        .li_list{
+            list-style: none;
+            color: white;
+            float: left;
+            line-height: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .li_listt{
+            list-style: none;
+            color: white;
+            float: left;
+            line-height: 30px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        .li_list:hover{
+            color: #02BBEB;
+        }
+        .right{
+            margin-left: 540px;
+        }
+        .login{
+            position:absolute;
+            margin-top: 30px;
+            width: 100%;
+            height: 80px;
+            background-color: rgba(215, 217, 216, 0.8);
+        }
+        .login_img{
+            margin-top: 20px;
+            margin-left:290px;
+            width: 120px;
+        }
+        .login_ul{
+            width: 500px;
+            height: 80px;
+            margin-left: 500px;
+            margin-top: -65px;
+        }
+        .login_li{
+            width: 80px;
+            line-height: 80px;
+            list-style: none;
+            float: left;
+            font-size: 14px;
+        }
+        .login_li:hover{
+            color: #02BBEB;
+        }
+
+        .dian{
+            position: fixed;
+            width: 22px;
+            height: 130px;
+            right: 0px;
+            top: 280px;
+            z-index: 2;
+        }
+        .diandian{
+            border: 1px solid white;
+            border-radius: 100%;
+            width: 10px;
+            height: 10px;
+            margin-top: 7px;
+        }
+        .banner{
+            width: 100%;
+            height:100%;
+            overflow: hidden;
+        }
+        .ul_banner{
+            width: 100%;
+            height: 100%;
+        }
+        .li_banner{
+            width: 100%;
+            height: 100%;
+            list-style: none;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .li_banner_div{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 10;
+        }
+        .img1{
+            width: 100%;
+            height: 100%;
+        }
+        .img2{
+            width: 420px;
+            margin-top: 300px;
+            margin-left: 440px;
+        }
+        .btn_center{
+            width: 480px;
+            height: 50px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .btn_log{
+            width: 175px;
+            height: 30px;
+            border-radius: 6px;
+            outline: none;
+            border:  1px solid white;
+            color: white;
+            background-color: #02BBEB;
+        }
+        .btn_reg{
+            width: 175px;
+            height: 30px;
+            margin-left: 90px;
+            border-radius: 6px;
+            outline: none;
+            border:  1px solid white;
+            background-color:transparent;
+            color: white;
+        }
+        .video{
+            width: 100%;
+            position: absolute;
+            top:0;
+            display: none;
+        }
+        .video_btn{
+            position: absolute;
+            width: 30px;
+            height:30px;
+            border: 1px solid white;
+            border-radius: 100%;
+            margin-top: 315px;
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            line-height: 30px;
+        }
+        .img3{
+            height: 90%;
+            bottom: 0;
+            margin-left: 725px ;
+            position: absolute;
+            z-index:30;
+        }
+        .yun1{
+            position: absolute;
+            width: 300px;
+            left: 50px;
+            top: 100px;
+            transition: all 40s linear;
+        }
+        .yun2{
+            position: absolute;
+            width: 300px;
+            left: 300px;
+            transition: all 30s linear;
+        }
+        .yun3{
+            position: absolute;
+            width: 500px;
+            left: 500px;
+            top: 60px;
+            transition: all 30s linear;
+        }
+        .img4{
+            position: absolute;
+            margin-top: 200px;
+            width: 310px;
+            margin-left: 400px;
+            display: none;
+        }
+        .yunpao1{
+            left:1300px;
+        }
+        .yunpao2{
+            left:1300px;
+        }
+        .yunpao3{
+            left:1300px;
+        }
+        .left_bottom {
+            position: absolute;
+            z-index: 1000;
+            bottom: 0px;
+            width: 100%;
+            height: 40px;
+            line-height: 22px;
+            font-size: 11px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.50);
+        }
+        .zhifu1{
+            position: absolute;
+            width: 575px;
+            top: -480px;
+            left: -570px;
+            transition: all 0.5s linear 0.5s;
+        }
+        .zhifu2{
+            width: 1500px;
+            top: 370px;
+            right: -1000px;
+            position: absolute;
+            transition: all 0.5s linear;
+        }
+        .zhifu1move{
+            top: -5px;
+            left: 24px;
+        }
+        .zhifu2move{
+            right: -470px;
+        }
+        .img5{
+            width: 470px;
+            margin-left: 740px;
+            margin-top: 210px;
+            display: none;
+        }
+        .img6{
+            width: 440px;
+            margin-top: 160px;
+            margin-left: 250px;
+            display: none;
+        }
+        .imgs{
+            transition: all 1s linear;
+        }
+        .img7{
+            width: 350px;
+            margin-top: 225px;
+            margin-left: 735px;
+            display: none;
+        }
+        .div_ceng7{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.35);
+            transition: all 1s linear 1s;
+        }
+        .img8{
+            width: 380px;
+            margin-left: 200px;
+            margin-top: 200px;
+            display: none;
+        }
+        .left{
+            position: absolute;
+            z-index: 200;
+            width: 45px;
+            height: 256px;
+            top: 240px;
+            left: 20px;
+            background-color: rgba(47, 79, 79, 0.51);
+        }
+        .louceng{
+            height: 30px;
+            border: 1px solid silver;
+            line-height: 30px;
+            text-align: center;
+            font-size: smaller;
+            color: aqua;
+        }
+        .small{
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            perspective: 300px;
+            perspective-origin: 50% 50%;
+        }
+        .imgm{
+            width: 100%;
+            height: 100%;
+            transition: all 1s linear 1s;
+            transform: translatez(50px);
+        }
+        .div1{
+            width: 100%;
+            height: 37%;
+            background-color: #f5f5f5;
+        }
+        .div2{
+            width: 100%;
+            height: 30%;
+            background-color: #f5f5f5;
+        }
+        .div3{
+            width: 100%;
+            height: 32%;
+            background-color: #201d2a;
+            color: #818181;
+        }
+        .div_a{
+            width: 62%;
+            height:37%;
+            margin: 0 auto;
+            padding-top: 11%;
+            border-bottom: 1px solid silver;
+        }
+        .div_a_ul{
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+        .div_a_li{
+            width: 25%;
+            text-align: left;
+            list-style: none;
+            font-size: 12px;
+            color: black;
+            float: left;
+            line-height: 34px;
+        }
+        .div_a_li a{
+            color:#818181;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        .div_a_li a:hover{
+            color: #4ccdf0;
+        }
+        .div_a_li span{
+            line-height: 40px;
+            font-size: 13px;
+            padding: 2px 5px;
+        }
+        .div2_left{
+            padding-top: 8px;;
+            width:62%;
+            height:100%;
+            margin: 0 auto;
+        }
+        .div2_right{
+            float: right;
+            margin-right: 8%;
+            margin-top: -13%;
+            width: 11%;
+            height: 60%;
+        }
+        .div2_right img{
+            width: 100%;
+            height: 100%;
+        }
+        .er{
+            width: 60%;
+            height:60%;
+            margin-left: 100%;
+        }
+        .ll{
+            margin-left: 75%;
+            margin-top: -17.5%;
+
+        }
+        .gg{
+            margin-top: -12.5%;
+            margin-left: 0%;
+            color: #818181;
+        }
+        .gy{
+            margin-top: -9.5%;
+            margin-left: 0%;
+        }
+        .ul_foot{
+            width: 83%;
+            height: 53%;
+            margin-left: 18.5%;
+            padding-top: 60px;
+        }
+        .ul_foot li{
+            list-style: none;
+            float: left;
+            font-size:10px;
+            height: 15px;
+            margin-top: 1px;
+            padding: 1px 4px;
+            width: auto;
+            border-right: 1px solid #c0c0c0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="block">
+        <div class="content">
+            <div class="title">
+                <ul class="ul_list">
+                    <li class="li_list">个人</li>
+                    <li class="li_list">企业</li>
+                    <li class="li_list">开发者</li>
+                    <li class="li_list right">支付宝APP</li>
+                    <li class="li_listt">|</li>
+                    <li class="li_list">客户服务</li>
+                </ul>
+            </div>
+            <div class="login">
+                <img class="login_img" src="image/T1HHFgXXVeXXXXXXXX.png"/>
+                <ul class="login_ul">
+                    <li class="login_li" style="color: #02BBEB">首页</li>
+                    <li class="login_li">财富中心</li>
+                    <li class="login_li">安全保障</li>
+                    <li class="login_li">商家中心</li>
+                    <li class="login_li">开放平台</li>
+                </ul>
+            </div>
+        </div>
+        <div class="left">
+            <div class="louceng">第一层</div>
+            <div class="louceng">第二层</div>
+            <div class="louceng">第三层</div>
+            <div class="louceng">第四层</div>
+            <div class="louceng">第五层</div>
+            <div class="louceng">第六层</div>
+            <div class="louceng">第七层</div>
+            <div class="louceng">顶层</div>
+        </div>
+        <div class="dian">
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+            <div class="diandian"></div>
+        </div>
+        <div class="banner">
+            <ul class="ul_banner">
+                <li class="li_banner">
+                    <div class="li_banner_div">
+                        <img class="img2" src="image/4JdljnmTmX.png"/>
+                        <span class="video_btn">&triangleright;</span>
+                        <div class="btn_center">
+                            <button class="btn_log">登录</button>
+                            <button class="btn_reg">立即注册</button>
+                        </div>
+                    </div>
+                    <video class="video"src="image/T1T78eXapfXXXXXXXX.mp4 "></video>
+                    <img class="img1" src="image/T1k5ReXXlkXXXXXXXX.jpg"/>
+                </li>
+                <li class="li_banner">
+                    <div class="li_banner_div">
+                        <img class="yun1" src="image/4JdkvPL4wX.png"/>
+                        <img class="yun2" src="image/T19AteXc4xXXXXXXXX.png"/>
+                        <img class="yun3" src="image/T10QFeXdlgXXXXXXXX.png"/>
+                        <img class="img4" src="image/4JdlKWNmB3.png"/>
+                    </div>
+                    <img class="img3" src="image/T1GDtfXeRcXXXXXXXX.png"/>
+                    <img class="img1" src="image/T1yXVfXfddXXXXXXXX.jpg"/>
+                    <div class="left_bottom">
+                        <p>转账付款</p>
+                        <span>转到支付宝账户，瞬间到账 | 转到银行卡，2小时到账</span>
+                    </div>
+                </li>
+                <li class="li_banner">
+                    <div class="li_banner_div">
+                        <img class="zhifu2" src="image/T1PQteXadyXXXXXXXX.png"/>
+                        <img class="zhifu1" src="image/T1zABeXkxsXXXXXXXX.png"/>
+                        <img class="img5" src="image/T148deXkVlXXXXXXXX.png"/>
+                    </div>
+                    <img class="img1" src="image/4JdlRITPmX.jpg"/>
+                    <div class="left_bottom">
+                        <p>转账付款</p>
+                        <span>转到支付宝账户，瞬间到账 | 转到银行卡，2小时到账</span>
+                    </div>
+                </li>
+                <li class="li_banner">
+                    <div class="li_banner_div">
+                        <img class="img6" src="image/T14uXfXdBXXXXXXXXX.png"/>
+                    </div>
+                    <img class="img1 imgs" src="image/T1y3dfXfFlXXXXXXXX.jpg"/>
+                    <div class="left_bottom">
+                        <p>转账付款</p>
+                        <span>转到支付宝账户，瞬间到账 | 转到银行卡，2小时到账</span>
+                    </div>
+                </li>
+                <li class="li_banner">
+                    <div class="li_banner_div div7">
+                        <img class="img7" src="image/T1fCVfXg0hXXXXXXXX.png"/>
+                    </div>
+                    <img class="img1" src="image/4JdkvtFg7B.jpg"/>
+                    <div class="left_bottom">
+                        <p>转账付款</p>
+                        <span>转到支付宝账户，瞬间到账 | 转到银行卡，2小时到账</span>
+                    </div>
+                </li>
+                <li class="li_banner ">
+                    <div class="li_banner_div">
+                        <img class="img8" src="image/4OdnkirZ89.png"/>
+                    </div>
+                    <div class="small">
+                        <img class="imgm" src="image/4JdidBF3Kn.jpg"/>
+                    </div>
+                    <div class="left_bottom">
+                        <p>转账付款</p>
+                        <span>转到支付宝账户，瞬间到账 | 转到银行卡，2小时到账</span>
+                    </div>
+                </li>
+                <li class="li_banner">
+                    <div class="div1">
+                        <div class="div_a">
+                            <ul class="div_a_ul">
+                                <li class="div_a_li">付款，是件容易的事</li>
+                                <li class="div_a_li">会员保障，安心付款</li>
+                                <li class="div_a_li">海外商品，想购就购</li>
+                                <li class="div_a_li">玩转支付宝</li>
+                            </ul>
+                            <ul class="div_a_ull">
+                                <li class="div_a_li"><a href="#">付款方式</a><span>|</span><a href="#">134家金融机构</a></li>
+                                <li class="div_a_li"><a href="#">安全升级</a><span>|</span><a href="#">应急服务</a><span>|</span><a href="#">理赔服务</a></li>
+                                <li class="div_a_li"><a href="#">全球直购</a><span>|</span><a href="#">海外直购</a></li>
+                                <li class="div_a_li"><a href="#">如何购物</a><span>|</span><a href="#">新手须知</a><span>|</span><a href="#">我要开店</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="div2">
+                        <div class="div2_left">
+                            <ul class="div_a_ul">
+                                <li class="div_a_li" style="color:#818181"><a href="#">支付宝收费规则</a>|<a href="#">支付宝服务协议</a></li>
+                                <li class="div_a_li" style="color:#818181">支付宝官方微博<a href="#">&nbsp;+关注</a></li>
+                                <li class="div_a_li" style="color:#818181">下载支付宝</li>
+                                <li class="div_a_li"><a href="#">支付宝E公益</a></li>
+                            </ul>
+                            <ul class="div_a_ul">
+                                <li class="div_a_li" style="line-height:18px"><a href="#">蚂蚁金服隐私权政策蚂蚁</a>|<a href="#">金服客户权益保障承诺书</a></li>
+                                <li class="div_a_li"><img class="er" src="image/4JeKe0VC1t.jpg"/></li>
+                                <li class="div_a_li ll"><a href="#">帮助听力智障儿童献爱心</a></li>
+                            </ul>
+                            <ul class="div_a_ul">
+                                <li class="div_a_li gg">公告<a href="#"> 变更支付宝服务协议的公告</a></li>
+                            </ul>
+                            <ul class="div_a_ul">
+                                <li class="div_a_li gy"><a href="#">《关于防范和打击电信网络诈骗》</a></li>
+                            </ul>
+                        </div>
+                        <div class="div2_right">
+                            <img src="image/T1L0JfXdhmXXXXXXXX.jpg"/>
+                        </div>
+                    </div>
+                    <div class="div3">
+                        <ul class="ul_foot">
+                            <li>诚征英才</li>
+                            <li>联系我们</li>
+                            <li>International</li>
+                            <li>BusinessICP证: 沪B2-20150087</li>
+                            <br/>
+                            <li>蚂蚁金服集团</li>
+                            <li>支付宝</li>
+                            <li>余额宝</li>
+                            <li>招财宝</li>
+                            <li>芝麻信用</li>
+                            <li>蚂蚁微贷</li>
+                            <li>网商银行</li>
+                            <li>蚂蚁达客</li>
+                            <br/>
+                            <li>阿里巴巴集团</li>
+                            <li>淘宝网</li>
+                            <li>天猫</li>
+                            <li>聚划算</li>
+                            <li>全球速卖通</li>
+                            <li>阿里巴巴国际交易市场</li>
+                            <li>1688</li>
+                            <li>阿里妈妈</li>
+                            <li> 阿里旅行·去啊</li>
+                            <li>阿里云计算</li>
+                            <li>YunOS</li>
+                            <li>阿里通信</li>
+                            <li>万网</li>
+                            <li>高德</li>
+                            <li>优视</li>
+                            <li>友盟</li>
+                            <li>虾米</li>
+                            <li>天天动听</li>
+                            <li>来往</li>
+                            <li>钉钉</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
